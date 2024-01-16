@@ -6,6 +6,7 @@ const App = () => {
   const [title,setTitle]=useState("");
   const [description,setDescription]=useState("");
   const [isTitleTouched,setIsTitleTouched]=useState(false);
+
   const [isDescTouched,setIsDescTouched]=useState(false);
   const [list,setList]=useState([]);
   function handleSubmit(e){
@@ -34,15 +35,16 @@ const App = () => {
         onBlur={()=>setIsTitleTouched(true)}
          onChange={(e)=>setTitle(e.target.value)} />
         </div>
-        {isTitleTouched && !title ? "Please enter any value":""}
+        {isTitleTouched && !title ? "Please enter correct value":""}
         <div>
         <label htmlFor="title">Description</label>
         <textarea rows="10" cols="20" type="text"
          value={description}
+
          onBlur={()=>setIsDescTouched(true)}
           onChange={(e)=>setDescription(e.target.value)} />
         </div>
-        {isDescTouched && !description ? "Please enter any value":""}
+        {isDescTouched && !description ? "Please enter correct value":""}
         <button type='submit'>Submit</button>
       </form>
 
