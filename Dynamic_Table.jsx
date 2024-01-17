@@ -14,3 +14,15 @@ const DynamicTable = ({ data }) => {
         </tr>
       </thead>
       <tbody>
+        {data.map((row, index) => (
+          <tr key={index}>
+            {headers.map(header => (
+              <td key={header}>{row[header]}</td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+};
+
