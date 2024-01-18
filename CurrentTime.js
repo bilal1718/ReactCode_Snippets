@@ -7,3 +7,14 @@ export default function Clock() {
     color: 'white',
     backgroundColor: 'black',
   };
+const d = new Date();
+  let hour = d.getHours() % 12;
+  let minutes = d.getMinutes();
+  let seconds = d.getSeconds();
+
+  return( 
+    <div style={timeStyle} className="time">
+      {hour}:{minutes}:{seconds}
+    </div>
+  );
+}
