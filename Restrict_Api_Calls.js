@@ -19,3 +19,19 @@ export default function App() {
 
     fetchJobIds();
   }, []);
+  useEffect(() => {
+    const fetchJobs = async () => {
+      try {
+        const jobDetailsPromises = jobIds.slice(startIndex, startIndex + 6).map(async (jobId) => {
+          const response = await fetch(`https://hacker-news.firebaseio.com/v0/item/${jobId}.json`);
+          return response.json();
+        });
+
+        const newJobsData = await Promise.all(jobDetailsPromises);
+        setJobs([...jobs, ...newJobsData]);
+      } catch (error) {
+        console.error('Error fetching job details:', error);
+      }
+    };
+
+
