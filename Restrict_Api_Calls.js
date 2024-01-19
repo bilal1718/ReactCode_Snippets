@@ -16,6 +16,7 @@ export default function App() {
         console.error('Error fetching job IDs:', error);
 
       }
+
     };
 
     fetchJobIds();
@@ -40,3 +41,16 @@ export default function App() {
   const loadMoreJobs = () => {
     setStartIndex(startIndex + 6);
   };
+return (
+    <>
+      <div>Hacker News Jobs Board</div>
+      {jobs.map((job, index) => (
+        <div key={index}>
+          <h6 className='title'>{job.title}</h6>
+          <p>By: {job.by}</p>
+        </div>
+      ))}
+      <button onClick={loadMoreJobs}>Load More</button>
+    </>
+  );
+}
