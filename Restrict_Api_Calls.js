@@ -14,6 +14,7 @@ export default function App() {
         setJobIds(jobIdsData.slice(startIndex)); // Get the first six job IDs
       } catch (error) {
         console.error('Error fetching job IDs:', error);
+
       }
     };
 
@@ -34,4 +35,8 @@ export default function App() {
       }
     };
 
+}, [jobIds, startIndex]);
 
+  const loadMoreJobs = () => {
+    setStartIndex(startIndex + 6);
+  };
