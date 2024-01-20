@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 
@@ -18,4 +17,12 @@ const ProgressBar = ({ percent=10 }) => {
     backgroundColor: 'green',
   };
 
- 
+  return (
+    <div style={progressBarStyle}>
+      <div style={progressStyle}></div>
+    </div>
+  );
+};
+
+
+export default ProgressBar;
