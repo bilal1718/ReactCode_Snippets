@@ -1,1 +1,25 @@
+main {
+  box-sizing:border-box;
+  padding:10px;
+  margin:10px;
+
+}
+.list{
+  margin:40px;
+
+  padding:10px;
+
+}
+tr{
+
+  margin:5px;
+
+}
+td{
+
+  padding:5px;
+  margin:5px;
+}
+
+
 
