@@ -23,5 +23,6 @@ return (
         Your Article has {count} {count === 1 ? 'word' : 'words'}.
       </h1>
     </>
+export default App;
   );
 };
