@@ -19,3 +19,9 @@ return (
         data-testid="textarea-id"
         placeholder="Paste your article here..."
       />
+ <h1 data-testid="output-id">
+        Your Article has {count} {count === 1 ? 'word' : 'words'}.
+      </h1>
+    </>
+  );
+};
