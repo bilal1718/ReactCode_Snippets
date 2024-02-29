@@ -11,3 +11,11 @@ const App = () => {
     const words = text.split(/\s+/).filter((word) => word.length > 0);
     setCount(words.length);
   };
+return (
+    <>
+      <textarea
+        value={input}
+        onChange={countWords}
+        data-testid="textarea-id"
+        placeholder="Paste your article here..."
+      />
