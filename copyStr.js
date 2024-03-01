@@ -16,3 +16,18 @@ const CopyToClipboard = ({ str = 'bilal' }) => {
   )
 }
 
+export default CopyToClipboard
+
+const Button = styled.button`
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+`;
