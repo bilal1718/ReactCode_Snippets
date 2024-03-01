@@ -11,4 +11,8 @@ const CopyToClipboard = ({ str = 'bilal' }) => {
       setCopied(false)
     }, 1000)
   }
+  return (
+    <Button onClick={handleCopy}>{copied ? 'Copied' : 'Copy'}</Button>
+  )
+}
 
