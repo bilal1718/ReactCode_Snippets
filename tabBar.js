@@ -1,4 +1,3 @@
-
 import styled from 'styled-components';
 import {useState} from 'react'
 
@@ -73,3 +72,24 @@ const TabList = styled.ul`
   border-bottom: 1px solid lightgray;
 `;
 
+const Tab = styled.li`
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  color: ${props => (props.active ? 'black' : 'gray')};
+  background-color: ${props => (props.active ? 'lightgray' : 'white')};
+`;
+
+const TabContent = styled.div`
+  padding: 20px;
+`;
+
+const PersonContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const AddressContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
