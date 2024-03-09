@@ -13,3 +13,15 @@ useEffect(() => {
         setWeatherData(data);
       });
   }, [city]);
+return (
+    <div className="App">
+      <input type="text" onChange={(e) => setCity(e.target.value)} />
+      {city && weatherData.name && (
+        <div>
+          <h1>{weatherData.name}</h1>
+          <h2>Feels like: {weatherData.main.feels_like}°C</h2>
+        </div>
+      )}
+    </div>
+  );
+}
