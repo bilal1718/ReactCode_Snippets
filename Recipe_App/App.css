@@ -573,3 +573,164 @@ input#make-pesto:checked + ol li label[for="make-pesto"] span {
   color: #000000;
 }
 
+/*** TABLET ***/
+
+@media only screen and (max-width: 980px) {
+  ul.ingredients + .tip {
+    width: calc(75% - 13em);
+    font-size: 0.85em;
+    line-height: 1em;
+    position: absolute;
+    bottom: -0.25em;
+  }
+  ul.ingredients + .tip span {
+    padding-top: 0;
+  }
+  ul.ingredients {
+    width: 100%;
+  }
+  .description p.tip {
+    width: 180%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  h1 {
+    font-size: 1.85em;
+  }
+}
+
+/*** MOBILE ***/
+
+@media only screen and (max-width: 767px) {
+  h1 {
+    font-size: 1.5em;
+  }
+  .recipe-box {
+    width: 90vw;
+    height: 90vh;
+  }
+
+  figure {
+    width: 15%;
+  }
+
+  .content {
+    width: 85%;
+  }
+
+  ul.details {
+    transform: scale(0.75);
+    float: right;
+    margin-right: -1em;
+    margin-top: -2.5em;
+  }
+
+  .description {
+    width: calc(100% - 11.5em);
+    margin-right: 0;
+    font-size: 0.7em;
+  }
+
+  .description p.tip {
+    width: 105%;
+  }
+
+  ul.details + h2 {
+    margin: -0.5em 0 1em 0;
+    font-size: 0.85em;
+  }
+
+  ul.ingredients {
+    transform: scale(0.75);
+    margin-left: -3em;
+    margin-top: -2em;
+  }
+
+  ul.ingredients + .tip {
+    display: none;
+  }
+
+  ul.ingredients label:before {
+    height: 1.25em;
+  }
+
+  figcaption {
+    transform: rotate(90deg) translateX(-4em) translateY(5em);
+    font-size: 0.65em;
+  }
+
+  ul.ingredients li {
+    line-height: 1.25em;
+  }
+
+  .recipe-back h2 {
+    font-size: 1.15em;
+  }
+
+  ol.instructions li {
+    line-height: 1em;
+    font-size: 0.85em;
+  }
+
+  ol.instructions li ul li {
+    line-height: 1em;
+    font-size: 1em;
+  }
+}
+
+@media only screen and (max-width: 580px) {
+  figure {
+    width: 100%;
+    height: 10%;
+  }
+
+  .content {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 1.45em;
+  }
+
+  ul.details {
+    margin-top: -0.5em;
+  }
+
+  .description {
+  }
+
+  ul.ingredients {
+    margin-left: -2.75em;
+    width: 130%;
+    margin-top: -1.5em;
+  }
+
+  ul.details + h2 {
+    margin-top: 1em;
+  }
+
+  ul.ingredients label:before {
+    height: 1.25em;
+  }
+
+  figure img {
+    margin-left: -10em !important;
+    margin-top: -6em;
+    height: auto !important;
+    width: 100%;
+  }
+
+  figcaption {
+    transform: none;
+    bottom: inherit;
+    top: 7%;
+    width: 98%;
+    text-align: right;
+  }
+
+  .recipe-back figure img {
+    width: 160%;
+    margin-top: -3em;
+  }
+}
