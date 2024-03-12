@@ -19,3 +19,40 @@ function App() {
         console.error("Error fetching recipe data:", error);
       });
   }, [query, apiKey, appId]);
+return (
+    <>
+    <>
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans"
+    rel="stylesheet"
+  />
+  {recipeData && recipeData.map((recipe,i)=>(
+  <div className="recipe-card" key={i}>
+   <div
+      style={{
+        backgroundImage: `url(${recipe.recipe.image})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: '50% 50%',
+        backgroundSize: 'cover',
+        height: 150
+      }}
+      />
+    <div className="recipe-card__body">
+      <h1 className="recipe-card__heading">{recipe.recipe.label}</h1>
+      <h2 className="recipe-card__subhead">
+        Crunchy around the edges, softer in the center, these oatmeal cookies
+        feature the nutty taste and nubbly texture of oats.{" "}
+      </h2>
+      <ul className="recipe-card__nav">
+        <li>
+          <h3 className="active">Ingredients</h3>
+        </li>
+        <li>
+          <h3>Method</h3>
+        </li>
+      </ul>
+      {recipe.recipe.ingredients.map((ingre)=>(
+      <ul className="recipe-card__ingredients">
+        <li>{ingre.text}</li>
+      </ul>
+      ))}
