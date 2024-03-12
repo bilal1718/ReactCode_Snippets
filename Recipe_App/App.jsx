@@ -19,7 +19,8 @@ function App() {
         console.error("Error fetching recipe data:", error);
       });
   }, [query, apiKey, appId]);
-return (
+
+  return (
     <>
     <>
   <link
@@ -56,3 +57,12 @@ return (
         <li>{ingre.text}</li>
       </ul>
       ))}
+    </div>
+  </div>
+  ))}
+</>
+</>
+  );
+}
+
+export default App;
