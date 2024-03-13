@@ -65,3 +65,38 @@ body {
 .recipe-card__nav h3:hover {
   cursor: pointer;
 }
+.recipe-card__nav h3:hover:after, .recipe-card__nav h3.active:after {
+  width: 100%;
+}
+@media (min-width: 599px) {
+  .recipe-card {
+    width: 600px;
+ }
+  .recipe-card__ingredients {
+    column-count: 2;
+ }
+}
+span{
+  font-weight: 600;
+}
+.li{
+  font-weight: 600;
+}
+.badge {
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+}
+.badge:hover{
+  cursor: pointer;
+}
+.badge-style {
+  margin-left: 2px;
+  margin-right: 2px;
+}
