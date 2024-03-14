@@ -96,7 +96,9 @@ span{
 .badge:hover{
   cursor: pointer;
 }
-.badge-style {
-  margin-left: 2px;
-  margin-right: 2px;
+.recipe-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
 }
