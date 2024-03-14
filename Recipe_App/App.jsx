@@ -19,7 +19,8 @@ function RecipeCard({ recipe, index }) {
     const brightness = (parseInt(rgb[0]) * 299 + parseInt(rgb[1]) * 587 + parseInt(rgb[2]) * 114) / 1000;
     return brightness >= 128 ? "black" : "white";
   };
-const toggleTags = () => {
+
+  const toggleTags = () => {
     setShowMoreTags((prev)=>!prev);
     if (showMoreTags) {
       setNumTagsDisplayed((prev) => prev + 5);
@@ -45,8 +46,9 @@ const toggleTags = () => {
       <div className="recipe-card__body" key={index}>
         <h1 className="recipe-card__heading">{recipe.recipe.label}</h1>
         <h2 className="recipe-card__subhead">
-          {recipe.recipe.healthLabels.slice(0, numTagsDisplayed).map((label) => (
+          {recipe.recipe.healthLabels.slice(0, numTagsDisplayed).map((label,i) => (
             <span
+            key={`${label}-${i}`}
               className={`badge`}
               style={{
                 backgroundColor: getRandomColor(),
@@ -102,13 +104,14 @@ const toggleTags = () => {
     </div>
   );
 }
+
 function App() {
   const [recipeData, setRecipeData] = useState([]);
   const apiKey = "867c80f9ffb5e836c8d66abb429338ec";
   const appId = "aa6401ab";
 
   useEffect(() => {
-    fetch(`https://api.edamam.com/search?q=paratha&app_id=${appId}&app_key=${apiKey}`)
+    fetch(`https://api.edamam.com/search?q=pizza&app_id=${appId}&app_key=${apiKey}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -122,13 +125,14 @@ function App() {
   return (
     <>
       <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
-      {recipeData &&
-        recipeData.map((recipe, i) => (
-          <RecipeCard recipe={recipe} index={i} key={i} />
-        ))}
+      <div className="recipe-container">
+        {recipeData &&
+          recipeData.map((recipe, i) => (
+            <RecipeCard recipe={recipe} index={i} key={i} />
+          ))}
+      </div>
     </>
   );
 }
 
 export default App;
-
