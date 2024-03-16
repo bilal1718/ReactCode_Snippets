@@ -33,3 +33,25 @@ function App() {
     e.preventDefault();
     setSearchTerm(inputValue); // Set the search term for fetching data
   }
+return (
+    <>
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
+      <form onSubmit={handleSubmit}>
+        <input type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
+        <button type="submit">Search</button>
+      </form>
+      {loading && <p>Loading...</p>}
+      {error && <p>{error}</p>}
+      <div className="recipe-container">
+        {recipeData.length > 0 ?
+          recipeData.map((recipe, i) => (
+            <RecipeCard recipe={recipe} index={i} key={i} />
+          )) :
+          <p>Search for any type of recipe</p>
+        }
+      </div>
+    </>
+  );
+}
+
+export default App;
