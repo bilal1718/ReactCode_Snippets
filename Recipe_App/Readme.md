@@ -1,1 +1,1 @@
-The file for recipe app in React JS. The app has inherited mapping
+The file for recipe app in React JS. The app has inherited mapping. Also has Pagination 
