@@ -31,3 +31,21 @@ const indexOfLastPost = currentPage * postsPerPage;
       setCurrentPage(currentPage + 1);
     }
   };
+ useEffect(() => {
+    if (searchTerm.trim() !== '') {
+      setLoading(true);
+      setError(null);
+      fetch(`https://api.edamam.com/search?q=${searchTerm}&app_id=${appId}&app_key=${apiKey}`)
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          setRecipeData(data.hits);
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.error("Error fetching recipe data:", error);
+          setError("Error fetching recipe data. Please try again later.");
+          setLoading(false);
+        });
+    }
+  }, [apiKey, appId, searchTerm]);
