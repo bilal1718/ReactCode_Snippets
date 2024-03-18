@@ -49,3 +49,35 @@ const indexOfLastPost = currentPage * postsPerPage;
         });
     }
   }, [apiKey, appId, searchTerm]);
+const handleSubmit = (e) => {
+    e.preventDefault();
+    setSearchTerm(inputValue);
+  }
+
+  return (
+    <>
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
+      <form onSubmit={handleSubmit}>
+        <input type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
+        <button type="submit">Search</button>
+      </form>
+      {loading && <p>Loading...</p>}
+      {error && <p>{error}</p>}
+      <div className="recipe-container">
+        {currentPosts.length > 0 ?
+          currentPosts.map((recipe, i) => (
+            <RecipeCard recipe={recipe} key={i} />
+          )) :
+          <p>Search for any type of recipe</p>
+        }
+        {/* Pagination buttons */}
+        <div className="pagination">
+          <button onClick={previousPage} disabled={currentPage === 1}>Previous</button>
+          <button onClick={nextPage} disabled={currentPage === Math.ceil(recipeData.length / postsPerPage)}>Next</button>
+        </div>
+      </div>
+    </>
+  );
+}
+
+export default App;
