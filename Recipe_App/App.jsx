@@ -10,48 +10,5 @@ function App() {
   const appId = "aa6401ab";
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  useEffect(() => {
-    if (searchTerm.trim() !== '') {
-      setLoading(true);
-      setError(null);
-      fetch(`https://api.edamam.com/search?q=${searchTerm}&app_id=${appId}&app_key=${apiKey}`)
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-          setRecipeData(data.hits);
-          setLoading(false);
-        })
-        .catch((error) => {
-          console.error("Error fetching recipe data:", error);
-          setError("Error fetching recipe data. Please try again later.");
-          setLoading(false);
-        });
-    }
-  }, [apiKey, appId, searchTerm]);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSearchTerm(inputValue); // Set the search term for fetching data
-  }
-return (
-    <>
-      <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
-      <form onSubmit={handleSubmit}>
-        <input type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
-        <button type="submit">Search</button>
-      </form>
-      {loading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
-      <div className="recipe-container">
-        {recipeData.length > 0 ?
-          recipeData.map((recipe, i) => (
-            <RecipeCard recipe={recipe} index={i} key={i} />
-          )) :
-          <p>Search for any type of recipe</p>
-        }
-      </div>
-    </>
-  );
-}
-
-export default App;
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(5);
